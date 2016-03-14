@@ -5,6 +5,7 @@
     <license>Apache 2.0</license>
     <keywords>cordova,ibeacon,beacon,bluetooth,le,smartbeacon,ipstand,milky</keywords>
     <author>Matthieu BOHEAS</author>
+    <repo>https://github.com/Kelgors/cordova-plugin-smartbeacon.git</repo>
     <engines>
         <engine name="cordova" version="=6.0.0" />
     </engines>

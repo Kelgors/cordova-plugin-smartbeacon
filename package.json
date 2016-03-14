@@ -2,13 +2,17 @@
   "name": "cordova-plugin-smartbeacon",
   "version": "1.0.0",
   "description": "Proximity Beacon Monitoring with smartbeacons",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kelgors/cordova-plugin-smartbeacon.git"
+  },
   "cordova": {
     "id": "fr.milky.cordova.smartbeacon",
     "platforms": [
       "android"
     ]
   },
-  "private": true,
   "keywords": [
     "cordova",
     "ibeacon",
