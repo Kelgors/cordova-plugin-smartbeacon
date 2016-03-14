@@ -27,7 +27,9 @@ public class BeaconLocationListener implements SBLocationManagerListener {
         Iterator<SBBeacon> it = list.iterator();
         while (it.hasNext()) {
             SBBeacon beacon = it.next();
-            if (!beacons.contains(beacon)) beacons.add(beacon);
+            int index = beacons.indexOf(beacon);
+            if (index > -1) beacons.set(index, beacon);
+            else beacons.add(beacon);
         }
     }
 
@@ -41,7 +43,9 @@ public class BeaconLocationListener implements SBLocationManagerListener {
         Iterator<SBBeacon> it = list.iterator();
         while (it.hasNext()) {
             SBBeacon beacon = it.next();
-            if (!beacons.contains(beacon)) beacons.add(beacon);
+            int index = beacons.indexOf(beacon);
+            if (index > -1) beacons.set(index, beacon);
+            else beacons.add(beacon);
         }
     }
 
