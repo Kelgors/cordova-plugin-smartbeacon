@@ -44,11 +44,11 @@ public class BeaconManager extends CordovaPlugin {
             if ("startMonitoring".equals(action)) {
                 _listener.clear();
                 _manager.startMonitoringAllBeaconRegions();
-                callbackContext.sendPluginResult(new PluginResult(PluginResult.OK));
+                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
                 return true;
             } else if ("stopMonitoring".equals(action)) {
                 _manager.stopMonitoringAllBeaconRegions();
-                callbackContext.sendPluginResult(new PluginResult(PluginResult.OK));
+                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
                 return true;
             } else if ("getDetectedBeacons".equals(action)) {
                 commandGetDetectedBeacons(callbackContext);
