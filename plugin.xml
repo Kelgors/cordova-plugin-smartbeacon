@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="fr.milky.cordova.smartbeacon" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova-plugin-smartbeacon</name>
+    <description>Proximity Beacon Monitoring with smartbeacons</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,ibeacon,beacon,bluetooth,le,smartbeacon,ipstand,milky</keywords>
+    <author>Matthieu BOHEAS</author>
+    <engines>
+        <engine name="cordova" version="=6.0.0" />
+    </engines>
+    <!-- Third party libraries -->
+    <!-- Plugin source code: Core -->
+    <js-module name="BeaconManager" src="www/BeaconManager.js">
+        <clobbers target="milky.BeaconManager" />
+    </js-module>
+    <js-module name="Beacon" src="www/Beacon.js">
+        <clobbers target="milky.Beacon" />
+    </js-module>
+    <!-- Android -->
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="BeaconManager" >
+                <param name="android-package" value="fr.milky.cordova.smartbeacon.BeaconManager"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+            <uses-feature android:name="android.hardware.bluetooth_le" android:required="false" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.GET_TASKS" />
+        </config-file>
+
+        <source-file src="src/android/BeaconLocationListener.java" target-dir="src/fr/milky/cordova/smartbeacon" />
+        <source-file src="src/android/BeaconManager.java" target-dir="src/fr/milky/cordova/smartbeacon" />
+        <source-file src="src/android/Jsonifier.java" target-dir="src/fr/milky/cordova/smartbeacon" />
+        <source-file src="libs/android/smartbeaconsdk.jar" target-dir="libs" framework="true" />
+    </platform>
+</plugin>
