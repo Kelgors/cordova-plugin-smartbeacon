@@ -15,7 +15,7 @@
         <clobbers target="milky.BeaconManager" />
     </js-module>
     <js-module name="Beacon" src="www/Beacon.js">
-        <clobbers target="milky.Beacon" />
+        <runs/>
     </js-module>
     <!-- Android -->
     <platform name="android">

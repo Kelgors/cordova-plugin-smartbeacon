@@ -1,4 +1,5 @@
 var execute = cordova.require('cordova/exec');
+var Beacon = cordova.require('fr.milky.cordova.smartbeacon.Beacon');
 
 function BeaconManager() {}
 
@@ -31,5 +32,4 @@ BeaconManager.prototype = Object.create(Object.prototype, {
     }
   }
 });
-module.exports.beaconManager = new BeaconManager();
-module.exports.BeaconManager = BeaconManager;
+module.exports = BeaconManager;
