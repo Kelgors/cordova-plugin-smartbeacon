@@ -16,7 +16,7 @@
       value: function equals(beacon) {
         if (beacon === null || typeof beacon === 'undefined') return false;
         if (beacon === this) return true;
-        return beacon.uuid == beaconObject.uuid && beacon.major == beaconObject.major && beacon.minor == beaconObject.minor;
+        return beacon.uuid == this.uuid && beacon.major == this.major && beacon.minor == this.minor;
       }
     },
     toJSON: {
