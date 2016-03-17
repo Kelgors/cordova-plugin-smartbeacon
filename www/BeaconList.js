@@ -14,6 +14,7 @@
       if (!(beacon instanceof Beacon)) return new Beacon(beacon);
       return beacon;
     });
+    const propertyNames = Object.getOwnPropertyNames(BeaconList.prototype);
     for (const key in BeaconList.prototype) {
       if (!BeaconList.prototype.hasOwnProperty(key)) continue;
       Object.defineProperty(beaconList, key, {
