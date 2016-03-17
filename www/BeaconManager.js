@@ -1,22 +1,47 @@
 var execute = cordova.require('cordova/exec');
 var Beacon = cordova.require('fr.milky.cordova.smartbeacon.Beacon').Beacon;
 
+function setMonitoring(value) {
+  Object.defineProperty(this, 'isMonitoring', {
+    writable: false, configurable: true,
+    value: value
+  });
+}
+
 function BeaconManager() {}
 
 BeaconManager.prototype = Object.create(Object.prototype, {
   startMonitoring: {
     writable: false, configurable: false, enumerable: false,
     value: function startMonitoring() {
+      const _setMonitoringTo = setMonitoringTo.bind(this);
       return new Promise(function (resolve, reject) {
-        execute(resolve, reject, "BeaconManager", "startMonitoring", []);
+        function onStartMonitoringResolve(d) {
+          _setMonitoringTo(true);
+          resolve(d);
+        }
+        function onStartMonitoringReject(d) {
+          _setMonitoringTo(false);
+          reject(d);
+        }
+        execute(onStartMonitoringResolve, onStartMonitoringReject, "BeaconManager", "startMonitoring", []);
       });
     }
   },
   stopMonitoring: {
     writable: false, configurable: false, enumerable: false,
     value: function stopMonitoring() {
+      const _setMonitoringTo = setMonitoringTo.bind(this);
       return new Promise(function (resolve, reject) {
-        execute(resolve, reject, "BeaconManager", "stopMonitoring", []);
+        function onStopMonitoringResolve(d) {
+          _setMonitoringTo(false);
+          resolve(d);
+        }
+        function onStopMonitoringReject(d) {
+          _setMonitoringTo(false);
+          reject(d);
+        }
+        execute(onStopMonitoringResolve, onStopMonitoringReject, "BeaconManager", "stopMonitoring", []);
       });
     }
   },
@@ -25,7 +50,7 @@ BeaconManager.prototype = Object.create(Object.prototype, {
     value: function getDetectedBeacons() {
       return new Promise(function (resolve, reject) {
         function onSuccess(beacons) {
-          resolve(beacons.map(function (item) { return new Beacon(item); }));
+          resolve(BeaconList(beacons));
         }
         execute(onSuccess, reject, "BeaconManager", "getDetectedBeacons", []);
       });
