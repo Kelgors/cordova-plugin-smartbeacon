@@ -2,6 +2,7 @@
   'use strict';
   const execute = cordova.require('cordova/exec');
   const Beacon = cordova.require('fr.milky.cordova.smartbeacon.Beacon');
+  const BeaconList = cordova.require('fr.milky.cordova.smartbeacon.BeaconList');
 
   function setMonitoringTo(value) {
     Object.defineProperty(this, 'isMonitoring', {
@@ -52,7 +53,7 @@
       value: function getDetectedBeacons() {
         return new Promise(function (resolve, reject) {
           function onSuccess(beacons) {
-            resolve(BeaconList(beacons));
+            resolve(BeaconList.create(beacons));
           }
           execute(onSuccess, reject, "BeaconManager", "getDetectedBeacons", []);
         });
