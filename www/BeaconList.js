@@ -15,7 +15,8 @@
       return beacon;
     });
     const propertyNames = Object.getOwnPropertyNames(BeaconList.prototype);
-    for (const key in BeaconList.prototype) {
+    for (let index = 0; index < propertyNames.length; index++) {
+      const key = propertyNames[index];
       if (!BeaconList.prototype.hasOwnProperty(key)) continue;
       Object.defineProperty(beaconList, key, {
         enumerable: false,
