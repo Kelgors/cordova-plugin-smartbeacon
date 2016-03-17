@@ -1,7 +1,7 @@
 var execute = cordova.require('cordova/exec');
 var Beacon = cordova.require('fr.milky.cordova.smartbeacon.Beacon').Beacon;
 
-function setMonitoring(value) {
+function setMonitoringTo(value) {
   Object.defineProperty(this, 'isMonitoring', {
     writable: false, configurable: true,
     value: value
