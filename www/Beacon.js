@@ -30,4 +30,4 @@ Beacon.prototype = Object.create(Object.prototype, {
   }
 });
 
-module.exports.Beacon = Beacon;
+module.exports = Beacon;

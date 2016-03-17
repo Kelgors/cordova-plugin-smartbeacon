@@ -1,3 +1,4 @@
+const Beacon = cordova.require('fr.milky.cordova.smartbeacon.Beacon');
 const Constructor = BeaconList;
 const _super = Array.prototype;
 
@@ -29,6 +30,7 @@ BeaconList.prototype = Object.create(Object.prototype, {
   add: {
     enumerable: false, writable: false, configurable: false,
     value: function add(beacon) {
+      if (!(beacon instanceof Beacon)) beacon = new Beacon(beacon);
       return this.push(beacon);
     }
   },
@@ -109,3 +111,5 @@ BeaconList.prototype = Object.create(Object.prototype, {
 BeaconList.create = function create(array) {
   return Constructor(array);
 };
+
+module.exports = BeaconList;

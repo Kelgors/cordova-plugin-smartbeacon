@@ -17,6 +17,9 @@
     <js-module name="Beacon" src="www/Beacon.js">
         <runs/>
     </js-module>
+    <js-module name="BeaconList" src="www/BeaconList.js">
+        <runs/>
+    </js-module>
     <!-- Android -->
     <platform name="android">
         <config-file target="config.xml" parent="/*">
